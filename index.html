@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Maria Blair</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css"> -->
 <link rel="stylesheet" href="styles.css">
@@ -25,12 +25,14 @@ body, html {
 
 /* First image (Logo. Full height) */
 .bgimg-1 {
+    opacity: 1;
     background-image: url('red.png');
     min-height: 100%;
 }
 
 /* Second image (Portfolio) */
 .bgimg-2 {
+    opacity: 1;
     background-image: url("lake.png");
     min-height: 400px;
 }
@@ -53,10 +55,9 @@ body, html {
 
 /* Turn off parallax scrolling for tablets and phones */
 @media only screen and (max-width: 1024px) {
-    .bgimg-1, .bgimg-2, .bgimg-3 {
-        background-attachment: scroll;
-    }
+    .bgimg-1, .bgimg-2, .bgimg-3 { background-attachment: scroll; }
 }
+
 </style>
 <body>
 
@@ -81,18 +82,21 @@ body, html {
 <div class="w3-content w3-container w3-padding-64">
   <h3 class="w3-center">ABOUT ME</h3>
   <p class="w3-center"><em>I love making websites</em></p>
-  <p>I am a freelance Web and WordPress Developer. I got my start taking programming classes at Udacity.com and Skillcrush.com.  When I'm not programming, I can be found playing with my adorable 1-year-old daughter Ninja, biking with my husband or dancing salsa at a local club.</p>
+  <p>I am a freelance Web and WordPress Developer. I love building beautiful websites and other lovely web things.  When I'm not programming, I can be found playing with my adorable 1-year-old daughter Ninja, biking with my husband or dancing salsa at a local club.</p>
   <div class="w3-row">
     <div class="w3-col m6 w3-center w3-padding-large">
-      <p><b>Maria</b></p><br>
-      <img src="maria.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
+      <p><b> </b></p><br>
+      <br>
+      <img src="maria.jpg" id='maria-img' class="w3-round w3-image w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
     </div>
 
     <!-- Hide this text on small devices -->
     <div class="w3-col m6 w3-hide-small w3-padding-large">
-      <p>Welcome to my website. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      <br>
+      <br>
+      <p style='font-size: 1.1em'>Welcome to my website. I started studying programming about 2 years ago by taking some Python classes and got sucked in pretty fast.  My next step was Intro to Programming classes by Udacity and a WordPress blueprint by Skillcrush.  These online courses gave me a taste of Computer Science and programming in general, as well as some good tools to start creating my very own websites.  But it wasn't until Udacity gave me a scholarship for their Front-End Web Development nanodegree in June 2016 that I really discovered an exciting world of the web development.  Also, I am currently enrolled in a course on Visual Design learning the latest theories and technology in UX/UI.</p>
+
+      <p style='font-size: 1.1em'>During my studies at Udacity and Skillcrush, I've learned the latest and greatest in the Front-End Dev industry paying close attention to responsive design and site optimization.  I love resurrecting unresponsive websites or building sites from scratch using HTML, CSS, JS, jQuery, Bootstrap and Grunt, but I also love the power of WordPress when customizing the themes using PHP and adding functionality.  </p>
     </div>
   </div>
   <p class="w3-large w3-center w3-padding-16">What I am good at:</p>
@@ -120,7 +124,7 @@ body, html {
 <!-- Container (Portfolio Section) -->
 <div class="w3-content w3-container w3-padding-64">
   <h3 class="w3-center">MY WORK</h3>
-  <p class="w3-center"><em>Here are some of the images I really love.<br> Click on the images to make them bigger</em></p><br>
+  <p class="w3-center"><em>These images are not mine but I really love them.<br> Click on the images to make them bigger.</em></p><br>
 
   <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
   <div class="w3-row-padding w3-center">
@@ -157,7 +161,7 @@ body, html {
     <div class="w3-col m3">
       <img src="sky.jpeg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Sailing">
     </div>
-    <button class="w3-btn w3-light-grey w3-padding-xlarge" style="margin-top:64px">LOAD MORE</button>
+    <a href="https://mashablair.github.io/" class="button w3-btn w3-light-grey w3-padding-xlarge" style="margin-top:64px">SHOW PORTFOLIO</a>
   </div>
 </div>
 
@@ -193,7 +197,7 @@ body, html {
         <i class="fa fa-phone w3-hover-text-black" style="width:30px"></i> Phone: (805) 636-6461<br>
         <i class="fa fa-envelope w3-hover-text-black" style="width:30px"> </i> Email: mashablair@mail.com<br>
       </div>
-      <p>Or leave me a note here:</p>
+<!--       <p>Or leave me a note here:</p>
       <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
         <div class="w3-half">
           <input class="w3-input w3-border w3-hover-light-grey" type="text" placeholder="Name">
@@ -203,7 +207,7 @@ body, html {
         </div>
       </div>
       <input class="w3-input w3-border w3-hover-light-grey" type="text" placeholder="Comment">
-      <button class="w3-btn w3-section w3-right">SEND MESSAGE</button>
+      <button class="w3-btn w3-section w3-right">SEND MESSAGE</button> -->
     </div>
   </div>
 </div>
@@ -261,7 +265,7 @@ function myFunction() {
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
         navbar.className = "w3-navbar" + " w3-card-2" + " w3-animate-top" + " w3-white";
     } else {
-        navbar.className = navbar.className.replace(" w3-card-2 w3-animate-top w3-white", "");
+        navbar.className = navbar.className.replace("w3-card-2 w3-animate-top w3-white", "");
     }
 }
 </script>
