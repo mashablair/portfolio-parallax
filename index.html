@@ -2,7 +2,10 @@
 <html>
 <title>Maria Blair</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<!-- <link rel="stylesheet" href="styles.css"> -->
+<!-- jQuery for the image slider! -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js?ver=1.4.2"></script>
 <!-- I inlined the font to increase page speed:  -->
 <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato"> -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
@@ -76,28 +79,100 @@ body, html {
     .bgimg-1, .bgimg-2, .bgimg-3 { background-attachment: scroll; }
 }
 
+/*Slider:*/
+.container {
+  max-width: 1000px;
+  background-color: black;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+.container div {
+  background-color: white;
+  width: 100%;
+  display: inline-block;
+  display: none;
+}
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+button {
+  position: absolute;
+}
+
+.next {
+  right: 5px;
+}
+
+.prev {
+  left: 5px;
+}
+
+/*End of Slider*/
+
+.w3-content {
+    max-width: 90%;
+    margin: auto;
+}
+
+
+.w3-navbar li a {
+    padding: 16px;
+    float: left;
+}
+
 </style>
 <body>
 
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
-  <ul class="w3-navbar" id="myNavbar">
-    <li><a href="#">HOME</a></li>
-    <li class="w3-hide-small w3-right">
-      <a href="#" class="w3-hover-red"><i class="fa fa-search"></i></a>
+  <ul class="w3-navbar w3-white w3-card-2" id="myNavbar">
+    <li>
+      <a href="#home" class="w3-wide">HOME</a>
+    </li>
+    <!-- Right-sided navbar links -->
+    <li class="w3-right w3-hide-small">
+      <a href="#about">ABOUT</a>
+      <a href="#portfolio">PORTFOLIO</a>
+      <a href="#contact">CONTACT</a>
+      <a href="#tricks">TRICKS</a>
+    </li>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+    <li>
+      <a href="javascript:void(0)" class="w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+        <i class="fa fa-bars w3-padding-right w3-padding-left"></i>
+      </a>
     </li>
   </ul>
 </div>
 
+
+<!-- Sidenav on small screens when clicking the menu icon -->
+<nav class="w3-sidenav w3-black w3-card-2 w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidenav">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-large w3-padding-16">Close ×</a>
+  <a href="#about" onclick="w3_close()">ABOUT</a>
+  <a href="#work" onclick="w3_close()">WORK</a>
+  <a href="#contact" onclick="w3_close()">CONTACT</a>
+  <a href="#contact" onclick="w3_close()">TRICKS</a>
+</nav>
+
+
+
+
+
+
+
 <!-- First Parallax Image with Logo Text -->
-<div class="bgimg-1 w3-display-container">
+<div class="bgimg-1 w3-display-container" id="home">
   <div class="w3-display-middle" style="white-space:nowrap;">
     <span class="w3-center w3-padding-xlarge w3-black w3-xlarge w3-wide w3-animate-opacity">MARIA <span class="w3-hide-small">BLAIR</span></span>
   </div>
 </div>
 
 <!-- Container (About Section) -->
-<div class="w3-content w3-container w3-padding-64">
+<div class="w3-content w3-container w3-padding-64" id="about">
   <h3 class="w3-center">ABOUT ME</h3>
   <p class="w3-center"><em>I love making websites</em></p>
   <p>I am a freelance Web and WordPress Developer. I love building beautiful websites and other lovely web things.  When I'm not programming, I can be found playing with my adorable 1-year-old daughter Ninja, biking with my husband or dancing salsa at a local club.</p>
@@ -133,7 +208,7 @@ body, html {
 </div>
 
 <!-- Second Parallax Image with Portfolio Text -->
-<div class="bgimg-2 w3-display-container">
+<div class="bgimg-2 w3-display-container" id="portfolio">
   <div class="w3-display-middle">
     <span class="w3-xxlarge w3-text-light-grey w3-wide">PORTFOLIO</span>
   </div>
@@ -142,6 +217,7 @@ body, html {
 <!-- Container (Portfolio Section) -->
 <div class="w3-content w3-container w3-padding-64">
   <h3 class="w3-center">MY WORK</h3>
+  <div style="text-align: center;"><a href="https://mashablair.github.io/" class="button w3-btn w3-light-grey w3-padding-xlarge" style="margin-top:30px; margin-bottom: 30px;">SHOW PORTFOLIO</a></div>
   <p class="w3-center"><em>These images are not mine but I really love them.<br> Click on the images to make them bigger.</em></p><br>
 
   <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
@@ -179,8 +255,34 @@ body, html {
     <div class="w3-col m3">
       <img src="sky.png" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Sky">
     </div>
-    <a href="https://mashablair.github.io/" class="button w3-btn w3-light-grey w3-padding-xlarge" style="margin-top:64px">SHOW PORTFOLIO</a>
   </div>
+</div>
+
+
+<!-- Slider -->
+<div>
+  <section class="demo">
+  <button class="next">Next</button>
+  <button class="prev">Previous</button>
+  <div class="container">
+    <div style="display: inline-block;">
+      <img src="sky.png"/>
+    </div>
+    <div>
+     <img src="rocks.png"/>
+    </div>
+    <div>
+      <img src="moss.png"/>
+    </div>
+  </div>
+</section>
+
+<div style="padding-bottom: 5%;">
+  <p style="text-align: center;">Aren't they beautiful?</p>
+</div>
+<!-- End of Slider -->
+
+
 </div>
 
 <!-- Modal for full size images on click-->
@@ -193,7 +295,7 @@ body, html {
 </div>
 
 <!-- Third Parallax Image with Portfolio Text -->
-<div class="bgimg-3 w3-display-container">
+<div class="bgimg-3 w3-display-container" id="contact">
   <div class="w3-display-middle">
      <span class="w3-xxlarge w3-text-light-grey w3-wide">CONTACT</span>
   </div>
@@ -215,19 +317,67 @@ body, html {
         <i class="fa fa-phone w3-hover-text-black" style="width:30px"></i> Phone: (805) 636-6461<br>
         <i class="fa fa-envelope w3-hover-text-black" style="width:30px"> </i> Email: mashablair@mail.com<br>
       </div>
-<!--       <p>Or leave me a note here:</p>
-      <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-        <div class="w3-half">
-          <input class="w3-input w3-border w3-hover-light-grey" type="text" placeholder="Name">
-        </div>
-        <div class="w3-half">
-          <input class="w3-input w3-border w3-hover-light-grey" type="text" placeholder="Email">
-        </div>
+        <p>Let's have a cup of <i class="fa fa-coffee"></i>. Or leave me a note:</p>
+        <form action="form.asp" target="_blank">
+          <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+            </div>
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+            </div>
+          </div>
+          <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+          <button class="w3-btn w3-black w3-right w3-padding w3-section" type="submit">
+            <i class="fa fa-paper-plane"></i> SEND MESSAGE
+          </button>
+        </form>
       </div>
-      <input class="w3-input w3-border w3-hover-light-grey" type="text" placeholder="Comment">
-      <button class="w3-btn w3-section w3-right">SEND MESSAGE</button> -->
-    </div>
   </div>
+
+
+  <div id="tricks">
+      <!-- Search Google -->
+      <center>
+      <FORM method=GET action="http://www.google.com/search">
+      <TABLE bgcolor="#FFFFFF"><tr><td>
+      <A HREF="http://www.google.com/">
+      <IMG SRC="http://www.google.com/logos/Logo_40wht.gif" <br></A>
+      <INPUT TYPE=text name=q size=31 maxlength=255 value="">
+      <INPUT TYPE=hidden name=hl value="en">
+      <INPUT type=submit name=btnG VALUE="Google Search">
+      </td></tr></TABLE>
+      </FORM>
+      </center>
+      <!-- Search Google -->
+  </div>
+</div>
+
+<div>
+
+<h3 style="text-align: center;">Would you like to change the color of this site?  <br> Just hover over one of these colors!</h3>
+  <div style="text-align: center; margin-bottom: 5%;">
+    <a onmouseover="document.bgColor='white'">White </a><br>
+    <a onmouseover="document.bgColor='black'">Black</a><br>
+    <a onmouseover="document.bgColor='green'">Green</a><br>
+    <a onmouseover="document.bgColor='greem'">Bright Green</a><br>
+    <a onmouseover="document.bgColor='seagreen'">Sea Green</a><br>
+    <a onmouseover="document.bgColor='red'">Red</a><br>
+    <a onmouseover="document.bgColor='magenta'">Magenta</a><br>
+    <a onmouseover="document.bgColor='fusia'">Fusia</a><br>
+    <a onmouseover="document.bgColor='pink'">Pink</a><br>
+    <a onmouseover="document.bgColor='purple'">Purple</a><br>
+    <a onmouseover="document.bgColor='navy'">Navy</a><br>
+    <a onmouseover="document.bgColor='blue'">Blue</a><br>
+    <a onmouseover="document.bgColor='royalblue'">Royal Blue</a><br>
+    <a onmouseover="document.bgColor='skyblue'">Sky Blue</a><br>
+    <a onmouseover="document.bgColor='yellow'">Yellow</a><br>
+    <a onmouseover="document.bgColor='brown'">Brown</a><br>
+    <a onmouseover="document.bgColor='coral'">Coral</a><br>
+    <a onmouseover="document.bgColor='olivedrab'">Olive Drab</a><br>
+    <a onmouseover="document.bgColor='orange'">Orange</a><br>
+  </div>
+
 </div>
 
 <!-- Footer -->
@@ -245,8 +395,8 @@ body, html {
 <!-- Add Google Maps -->
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyA2oDW5ueo19JA1okdRwp5q24_6cWqSDGo"></script>
 <script>
-<!-- Google Map Location -->
-var myCenter = new google.maps.LatLng(34.4208, -119.6982);
+// <!-- Google Map Location -->
+var myCenter = new google.maps.LatLng(34.4208, -119.6982); // this is Santa Barbara, CA location on the map
 
 function initialize() {
 var mapProp = {
@@ -276,7 +426,7 @@ function onClick(element) {
   captionText.innerHTML = element.alt;
 }
 
-// Change style of navbar on scroll
+// Change style of navbar on scroll (this creates a sticky navbar)
 window.onscroll = function() {myFunction()};
 function myFunction() {
     var navbar = document.getElementById("myNavbar");
@@ -286,6 +436,64 @@ function myFunction() {
         navbar.className = navbar.className.replace("w3-card-2 w3-animate-top w3-white", "");
     }
 }
+
+// Image Slider!
+
+var currentIndex = 0,
+  items = $('.container div'),
+  itemAmt = items.length;
+
+function cycleItems() {
+  var item = $('.container div').eq(currentIndex);
+  items.hide();
+  item.css('display','inline-block');
+}
+
+var autoSlide = setInterval(function() {
+  currentIndex += 1;
+  if (currentIndex > itemAmt - 1) {
+    currentIndex = 0;
+  }
+  cycleItems();
+}, 3000);
+
+$('.next').click(function() {
+  clearInterval(autoSlide);
+  currentIndex += 1;
+  if (currentIndex > itemAmt - 1) {
+    currentIndex = 0;
+  }
+  cycleItems();
+});
+
+$('.prev').click(function() {
+  clearInterval(autoSlide);
+  currentIndex -= 1;
+  if (currentIndex < 0) {
+    currentIndex = itemAmt - 1;
+  }
+  cycleItems();
+});
+
+// End of Image Slider
+
+
+// Toggle between showing and hiding the sidenav when clicking the menu icon
+var mySidenav = document.getElementById("mySidenav");
+
+function w3_open() {
+    if (mySidenav.style.display === 'block') {
+        mySidenav.style.display = 'none';
+    } else {
+        mySidenav.style.display = 'block';
+    }
+}
+
+// Close the sidenav with the close button
+function w3_close() {
+    mySidenav.style.display = "none";
+}
+
 </script>
 
 </body>
